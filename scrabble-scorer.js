@@ -36,14 +36,13 @@ function oldScrabbleScorer(word) {
 
 function initialPrompt() {
    let word = input.question(`Let's play some scrabble! Enter a word: `);
-   console.log(oldScrabbleScorer(word))
+   // console.log(oldScrabbleScorer(word))
    return word;
 };
 
 let simpleScorer = function simpleScorer(word) {
    word = word.toUpperCase();
    let pointsPerLetter = 0;
-   transform(oldPointStructure)
    for (let i = 0; i < word.length; i++) {
       
       for (const pointValue in oldPointStructure){
@@ -58,7 +57,7 @@ let simpleScorer = function simpleScorer(word) {
 }
 // console.log(simpleScorer('drew'))
 
-let vowelBonusScorer = function vowelBonusScorer(word) {
+let vowelBonusScorer = function(word) {
    word = word.toUpperCase();
    let pointsPerLetter = 0;
    let vowels = ["A","E","I","O","U"]
@@ -136,7 +135,6 @@ function transform(oldPointStructure) {
 // let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
-   transform(oldPointStructure)
    let word = initialPrompt();
    let scoringAlg = scorerPrompt()
    console.log(scoringAlg.scorerFunction(word))
